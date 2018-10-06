@@ -23,20 +23,18 @@ def linreg_data_gd(X, y, iters=100000, lr=0.01):
         grad = X.T.dot(y_pred - y)/samples
         y_hyp = y_hyp - lr*grad
         cost_arr[iter] = cost_function(X, y_hyp, y)
-    return y_hyp
+    return y_hyp, cost_arr
 
 
-if __name__=="__main__":
+def main():
     diabetes = datasets.load_diabetes()
     X = diabetes.data
     X = preprocess_X(X)
     y = diabetes.target
-    y_hyp = linreg_data_gd(X, y)
+    y_hyp, cost_arr = linreg_data_gd(X, y)
+    print("Final Cost - ", cost_function(X, y_hyp, y))
+    print("Coefficients for the reg fit - ", y_hyp)
 
-    regr = linear_model.LinearRegression()
 
-    # Train the model using the training sets
-    regr.fit(X, y)
-    diabetes_y_pred = regr.predict(X)
-    print(cost_function(X, y_hyp, y))
-    print(y_hyp)
+if __name__=="__main__":
+    main()
