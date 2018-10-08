@@ -33,7 +33,7 @@ def main():
     y = diabetes.target
     y_hyp, cost_arr = linreg_data_gd(X, y)
     print("Final Cost - ", cost_function(X, y_hyp, y))
-    print("Coefficients for the reg fit are - ", y_hyp)
+    print("Coefficients for the reg fit are -- ", y_hyp)
 
 
 if __name__=="__main__":
