@@ -1,5 +1,5 @@
 import numpy as np
-from sklearn import datasets, linear_model
+from sklearn import datasets
 
 
 def preprocess_X(X):
